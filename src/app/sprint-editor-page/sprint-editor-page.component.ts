@@ -38,6 +38,9 @@ ngOnInit(): void {
       let latestDate = new Date(latestSprint.startDate)
       return spDate < latestDate ? latestSprint : sprint;
     })
+    if(this.activeSprint.tasks == null){
+      this.activeSprint.tasks = [];
+    }
   }
 
   console.log(this.activeSprint)

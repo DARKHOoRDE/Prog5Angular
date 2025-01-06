@@ -88,6 +88,8 @@ openSprintEditor(proj:Project){
 }
 
 finishProject(proj: Project) {
+  this.projects = this.projects.filter(p=>p.id  != proj.id);
+  this.finishedProjects.push(proj);
   this.entityServ.FinishProject(proj.id).subscribe();
 }
 editProject(proj: Project) {
