@@ -1,0 +1,21 @@
+<div class="tile-content">
+    <div class="main-container">
+      <div class="left-content">
+        <h4>{{ task.title }}</h4>
+        <p>{{task.assignedTo ? "Assigned to: "+ task.assignedTo:"Open for work"}}</p>
+        <p>{{ task.finishedOn ? (task.finishedOn | date: 'MMM d, yyyy') : 'Not Finished' }}</p>
+      </div>
+      <div class="button-container">
+        <button class="remove-button" (click)="removeTile()">X</button>
+        <button class="toggle-description" (click)="show = !show">
+          {{ show ? 'Hide Details' : 'Show Details' }}
+        </button>
+      </div>
+    </div>
+    <div class="bottom-container" *ngIf="show">
+      <div class="tile-description">
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+  </div>
+  

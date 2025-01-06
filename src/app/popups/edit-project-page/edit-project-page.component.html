@@ -1,0 +1,76 @@
+<div class="popup-container">
+    <div class="popup-content">
+      <button class="close-button" (click)="closePopup()">✖</button>
+      <h1>{{ proj.name }}</h1>
+  
+
+      <div class="participants-section">
+        <h3>Participants</h3>
+        <ul>
+          <li *ngFor="let participant of userList">
+            {{ participant.username }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="sprints-section">
+        <h3>Previous Sprints</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Sprint Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sprint of proj.sprints">
+              <td>{{ sprint.name }}</td>
+              <td>{{ sprint.startDate | date: 'yyyy.MM.dd' }}</td>
+              <td>{{ sprint.endDate | date: 'yyyy.MM.dd' }}</td>
+              <td>{{ getFinishedProjects(sprint) }}/{{ sprint.tasks ? sprint.tasks.length : 0}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+
+      <div class="new-sprint-panel" >
+        <h3 (click)="togglePopup()">Start New Sprint</h3>
+        <form (ngSubmit)="newSprintSubmit()" ngNativeValidate *ngIf="showPopup">
+          <div class="form-group">
+            <label for="sprintName">Sprint Name:</label>
+            <input
+              type="text"
+              id="sprintName"
+              [(ngModel)]="newSprint.name"
+              name="sprintName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date:</label>
+            <input
+              type="date"
+              id="startDate"
+              [(ngModel)]="newSprint.startDate"
+              name="startDate"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input
+              type="date"
+              id="endDate"
+              [(ngModel)]="newSprint.endDate"
+              name="endDate"
+              required
+            />
+          </div>
+          <button  type="submit" class="submit-button">Create Sprint</button>
+        </form>
+      </div>
+  </div>
+  

@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="sprint-header">
+    <div class="sprint-details" *ngIf="activeSprint" >
+      <div><strong>Project: {{proj.name}}</strong></div>
+      <div><strong>Sprint Name:</strong> {{ activeSprint.name  }}</div>
+      <div><strong>Start Date:</strong> {{ (activeSprint.startDate |  date) || 'N/A' }}</div>
+      <div><strong>End Date:</strong> {{ (activeSprint.endDate | date) || 'N/A' }}</div>
+      <div><strong>Completed/Total Tasks:{{getFinishedTaskNumber()}}/{{activeSprint.tasks.length}}</strong> </div>
+    </div>
+    <div  class="sprint-details" *ngIf="!activeSprint">
+        <div><strong>Project: {{proj.name}}</strong></div>
+        No active Sprint</div>
+  </div>
+  <div *ngIf="activeSprint" class="kanban-container">
+    <div class="add-tile">
+      <button (click)="addTile()">Add Tile</button>
+    </div>
+    <div class="tiles">
+      <div *ngFor="let task of activeSprint.tasks" class="tile">
+        <app-small-task-card [task]="task" (taskDeleted)="handleDeletedTask($event)"></app-small-task-card>
+      </div>
+    </div>
+  </div>

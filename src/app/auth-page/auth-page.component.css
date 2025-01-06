@@ -1,0 +1,110 @@
+
+.alert {
+    color: #d9534f; /* Red color for error messages */
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #d9534f; /* Red border */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space below the error message */
+  }
+  
+  .alert.alert-danger {
+    color: #d9534f;
+    background-color: #f2dede;
+    border-color: #d9534f;
+  }
+  
+  .login-container {
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      justify-content: center; /* Centers horizontally */
+      align-items: center; /* Centers vertically */
+      background-color: #1c1c3c; /* Dark blue background */
+    }
+    
+    /* Form container styling */
+    .form-container {
+      background: #222255; /* Darker blue form background */
+      padding: 30px; /* Extra padding for better spacing */
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px; /* Adjusted width for a balanced layout */
+    }
+    
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    
+    /* Toggle button for login/signup */
+    .toggle-btn {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(to right, #003366, #0055ff); /* Gradient blue */
+      color: #fff;
+      border-radius: 5px;
+      margin: 0 5px;
+    }
+    
+    button.active {
+      background: #444488; /* Active button darker blue */
+    }
+    
+    /* Form input styling */
+    form input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      background-color: #555577; /* Input background */
+      color: #fff;
+    }
+    
+    
+    
+    .login-btn {
+      width: 80%;
+      padding: 12px;
+      border: none;
+      
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+      
+      
+      background: linear-gradient(90deg, rgba(0,36,61,1) 0%, rgba(0,102,255,1) 100%);
+      color: white;
+      font-weight: bold;
+      
+    }
+    
+    
+    /* Google login card styling */
+    .google-login-card {
+      margin-top: 20px;
+      background-color: #333366; /* Darker background for Google card */
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .buttonDiv {
+      margin-top: 10px;
+    }
+    
+    
+    

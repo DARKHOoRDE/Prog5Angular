@@ -1,0 +1,36 @@
+<div class="popup-overlay">
+    <div class="ticket-popup">
+        <div class="popup-header">
+          <div class="form-group">
+            <label for="ticketTitle">Title</label>
+            <input
+              type="text"
+              id="ticketTitle"
+              placeholder="Enter ticket title"
+              [(ngModel)]="newProj.name"   
+            />
+          </div>
+          <div class="form-group">
+            <label for="assignTo">Assign To</label>
+            <mat-select class="matsel" [(value)]="newProj.userIds" multiple>
+                <mat-option *ngFor="let user of users" [value]="user.id">
+                  {{ user.username }}
+                </mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <!-- <div class="popup-body">
+          <div class="backlogs">
+            <h3>Backlogs</h3>
+            <ul>
+              <li *ngFor="let backlog of backlogs">{{ backlog }}</li>
+            </ul>
+          </div>
+          
+        </div> -->
+        <div class="sprint-actions">
+            <button (click)="onClose()">Cancel</button>
+            <button [disabled]="newProj.name === '' || newProj.userIds.length < 1 " (click)="SubmitProject()">Submit</button>
+          </div>
+      </div>
+    </div>

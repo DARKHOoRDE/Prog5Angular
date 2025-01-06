@@ -1,0 +1,9 @@
+<div class="header">
+    <div (click)="NavigateToMain()" class="title">DMA6M6</div>
+    <div class="buttons">
+      <button (click)="NavigateToCreatorPage()" *ngIf="isManager">My Projects</button>
+      <button (click)="NavigateToKanban()">Kanban</button>
+      <button (click)="NavigateToLogin()">Logout</button>
+    </div>
+  </div>
+  

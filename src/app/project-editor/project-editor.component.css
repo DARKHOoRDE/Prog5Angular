@@ -1,0 +1,72 @@
+.kanban-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #707074;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.project-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h2 {
+  font-size: 1.5em;
+  margin: 0 0 10px;
+}
+
+.project-card p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.finished-projects-separator {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.finished-projects-separator h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.finished-projects-separator hr {
+  margin: 10px auto;
+  width: 80%;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+.project-grid.finished-projects .project-card {
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+}
+
+.project-grid.finished-projects .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}

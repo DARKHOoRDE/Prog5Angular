@@ -1,0 +1,135 @@
+
+.ticket-popup {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1000; 
+    width: 600px;
+    height: 25%;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .matsel{
+    padding: 10px;
+    height: 80%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background: #4a148c;
+    padding: 20px;
+    color: white;
+    gap: 10px; 
+  }
+  
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .popup-body {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    background: #ffffff;
+  }
+  
+  .backlogs {
+    flex: 2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fafafa;
+  }
+  
+  .backlogs h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .backlogs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .backlogs li {
+    padding: 8px;
+    background: #e8e8e8;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .sprint-actions {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+  }
+  
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: #a1a1a1; 
+    color: #737070; 
+    cursor: not-allowed; 
+    border: 1px solid #717171;
+    opacity: 0.7;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .popup-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  

@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="error-display" *ngIf="errorMsg != ''">{{errorMsg}}</div>
+<div class="container">
+    <h1>Projects</h1>
+    <div class="project-list">
+        <div class="project-card" *ngFor="let project of projects">
+            <div class="texts">
+                <h3>{{ project.name }}</h3>
+                <p>{{ project.createdOn | date: 'yyyy.MM.dd' }}</p>
+                <p>Status: {{project.status}}</p>
+            </div>
+            <div class="card-actions">
+                <button (click)="editProject(project)">Edit Sprints</button>
+                <button (click)="openSprintEditor(project)">Sprint Editor</button>
+                <button (click)="finishProject(project)">Finish</button>
+            </div>
+        </div>
+    </div>
+    <button class="add-button" (click)="addProject()">Add New Project</button>
+    <div class="finished-projects-container">
+      <div class="finished-projects-header" (click)="toggleFinishedProjects()">
+          <span>Finished Projects</span>
+          <span id="toggle-icon">▼</span>
+      </div>
+      <div *ngIf="showPopup" id="finished-projects-list" class="finished-projects-list">
+          <div class="project-card fin" *ngFor="let project of finishedProjects">
+              <h3>{{ project.name }}</h3>
+              <p>Completed On: {{ project.createdOn| date }}</p>
+              <p>Finished On: {{ project.finishedOn| date }}</p>
+              <p>Created By: {{ project.createdBy }}</p>
+
+          </div>
+      </div>
+    </div>
+</div>

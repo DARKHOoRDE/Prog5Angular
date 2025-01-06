@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container">
+
+    <div class="side-panel">
+      <h2>Sprints</h2>
+      <div 
+        class="sprint-item" 
+        *ngFor="let sprint of sprints" 
+        
+        (click)="selectSprint(sprint)">
+        <h3>{{ sprint.name }}</h3>
+        <p>Start: {{ sprint.startDate | date }}</p>
+        <p>End: {{ sprint.endDate | date }}</p>
+        <p>Completed/Total Tasks: {{getCount(sprint) }} / {{sprint.tasks.length}}</p>
+      </div>
+    </div>
+  
+
+    <div class="main-panel">
+      <div class="error-display" *ngIf="errorMsg != ''">{{errorMsg}}</div>
+        <div *ngIf="selectedSprint" class="sprint-kanban">
+          <div class="buttons">
+            <button class="add-button" (click)="showDetail()">
+              {{ showKanban ? "Show Kanban" : "Show Open Tasks" }}
+            </button>
+          </div>
+    
+          <div *ngIf="showKanban" class="open-tasks-container">
+            <h2 class="open-tasks-header">Open Tasks</h2>
+            <div class="open-tasks-grid">
+                <div class="task-card-open" [title]="task.description" *ngFor="let task of getTasksForStage('Open')">
+                    <h3>{{ task.title }}</h3>
+                    
+                    
+                    <div class="task-actions">
+                        <button (click)="assignTask(task)">Assignt to Myself</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="kanban-board" *ngIf="!showKanban">
+            <div class="kanban-column" *ngFor="let stage of stages">
+              <h3>{{ stage }}</h3>
+              <div 
+                class="task-card" 
+                *ngFor="let task of getTasksForStage(stage)"
+                [title]="task.description">
+                <h4>{{ task.title }}</h4>
+                <h4>Assigned to: {{task.assignedTo}}</h4>
+                <div class="task-actions">
+                  <button *ngIf="stages.indexOf(stage) > 0 && stages.indexOf(stage) < stages.length-1 && isOwner(task)" (click)="moveTask(task,stage, 'back')">←</button>
+                  <button *ngIf="stages.indexOf(stage) == 0 && isOwner(task)" (click)="unassignTask(task)">Unassign</button>
+                  <button *ngIf="stages.indexOf(stage) < stages.length - 2 && isOwner(task)" (click)="moveTask(task,stage, 'next')">→</button>
+                  <button *ngIf="stages.indexOf(stage) == stages.length - 2 && isManager()" (click)="moveTask(task,stage,'next')">Complete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  

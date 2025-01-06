@@ -1,0 +1,27 @@
+<div class="login-container">
+    
+    <div class="form-container">
+      <h2>Login Form</h2>
+      <div class="toggle-btn">
+        <button id="login-btn" [class.active]="isLoginForm" (click)="ToggleForm('log')">Login</button>
+        <button id="signup-btn" [class.active]="!isLoginForm" (click)="ToggleForm('reg')">Signup</button>
+      </div>
+      
+      <form *ngIf="isLoginForm" ngNativeValidate (ngSubmit)="LoginSubmit()" >
+        <div *ngIf="loginErrorMess != ''" class="alert alert-danger">
+          
+        </div>
+        <input type="text" placeholder="Username" [(ngModel)]="userReg.username" name="userName" required />
+        <input type="password" placeholder="Password" [(ngModel)]="userReg.password" name="password" required  />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      
+      <form *ngIf="!isLoginForm" ngNativeValidate (ngSubmit)="RegisterSubmit()">
+        <input type="text" placeholder="First Name" [(ngModel)]="userReg.username" name="firstName"  required>
+        <input type="password" placeholder="Password" [(ngModel)]="userReg.password" name="passwordR" required  />
+        <button type="submit" class="login-btn">Register</button>
+      </form>
+      
+    </div>
+  </div>
+  
